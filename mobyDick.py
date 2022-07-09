@@ -1,12 +1,15 @@
 def getStopWords():
-       f = open("stop-words.txt")
+    f = open("stop-words.txt")
     firstSplit = f.read().split('#')
     words = firstSplit[len(firstSplit)-1]
     words = words.splitlines()
-    words = list(filter(None, words))
-    print(words)
+    stopWords = list(filter(None, words))
+    f.close()
 def getBook():
-    pass
+    f = open("mobydick.txt", encoding="utf-8")
+    words = re.sub(r'[^\w\s]', "", f.read()).split()
+    f.close()
+    return words
 def removeStopWords():
     pass
 def count():
